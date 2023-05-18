@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  podcaster:
+    restart: always
+    image: django-docker
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/code
+      - podcastpy_static_volume:/code/static
+      - podcastpy_files_volume:/code/files
+    ports:
+      - "8000:8000"
+    env_file: .env
+    networks:
+      - podcastpy_network
+    depends_on:
+      - podcastpy_postgres
+  podcastpy_postgres:
+    image: postgres
+    restart: always
+    env_file: .env
+    ports:
+      - '5432:5432'
+    volumes:
+      - podcaster_postgres:/var/lib/postgresql/data
+    networks:
+      - podcastpy_network
+volumes:
+  podcaster_postgres:
+    external: True
+  podcastpy_static_volume:
+    external: true
+  podcastpy_files_volume:
+    external: true
+networks:
+  podcastpy_network:
+

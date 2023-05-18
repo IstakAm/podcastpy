@@ -1,0 +1,28 @@
+<html>
+<head>
+
+</head>
+<body>
+<h1>{{ creator }}</h1>
+<h2>podcasts:</h2>
+{% for podcast in podcast_data %}
+ <div class="d-block d-md-flex podcast-entry bg-white mb-5" data-aos="fade-up">
+              <div class="image" style="background-image: url('{{ podcast.cover }}');"></div>
+
+              <div class="text">
+
+                <h3 class="font-weight-light"><a href="{{ podcast.id }}">{{ podcast.title }}</a></h3>
+                <div class="text-white mb-3"><span class="text-black-opacity-05"><small>By {{ podcast.creator }} <span class="sep">/</span> 16 September 2017 <span class="sep">/</span> 1:30:20</small></span></div>
+
+
+                <div class="player">
+                  <audio id="player2" preload="none" controls style="max-width: 100%">
+                    <source src="{{ podcast.audio }}" type="audio/mp3">
+                    </audio>
+                  </div>
+
+                </div>
+              </div>
+{% endfor %}
+</body>
+</html>

@@ -1,0 +1,5 @@
+.env
+venv/
+podcasts/migrations
+files/
+.idea/

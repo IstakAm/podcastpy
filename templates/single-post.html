@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>{{ title }}</h1>
+<p>{{ description }}</p>
+ <div class="d-block d-md-flex podcast-entry bg-white mb-5" data-aos="fade-up">
+              <div class="image" style="background-image: url('{{ cover }}');"></div>
+
+              <div class="text">
+
+
+
+                <div class="player">
+                  <audio id="player2" preload="none" controls style="max-width: 100%">
+                    <source src="{{ audio }}" type="audio/mp3">
+                    </audio>
+                  </div>
+
+                </div>
+              </div>
+</body>
+</html>
